@@ -1,0 +1,146 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    user-select: none;
+    transition: all 1s;
+}
+
+.title {
+  background: linear-gradient(to right,GreenYellow,Lime);
+  background: -webkit-linear-gradient(to right,GreenYellow,Lime);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.tabTitle {
+  display: inline-flex;
+}
+
+.tab .tabTitle a{
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.tabTitle a:hover{
+  border-color: lime;
+  border-radius: 5px;
+}
+
+.tab .tabTitle:target a, .tab--tabTitle-active a{
+  border-radius: 5px;
+  background-color: lime;
+  color: black;
+}
+
+.tab .tabTitle:target ~ .tab--tabTitle-active a{
+  background-color: white;
+  color: red;
+}
+
+.tab .tabContent{
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.tab .tabContentActive{
+  padding: 1.5rem;
+  opacity: 1;
+  height: auto;
+}
+
+.tab .tabTitle:target ~ .tabContentActive {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.tab #tab1:target ~ [data-id=tab1],
+.tab #tab2:target ~ [data-id=tab2],
+.tab #tab3:target ~ [data-id=tab3],
+.tab #tab4:target ~ [data-id=tab4] {
+  padding: 1.5rem;
+  height: auto;
+  opacity: 1;
+}
+
+.company{
+  height: 300px;
+  background-position: center;
+  background-image: url(img103.png);
+  background-repeat: no-repeat;
+}
+.back {
+  height: 100%;
+  backdrop-filter: blur(100px);
+}
+
+.timeline{
+  display: flex;
+  width: 50vw;
+  margin: 5% auto;
+}
+
+.timeline-icon {
+  position: relative;
+  font-size: 25px;
+  color: white;
+  width: 5rem;
+  height: 5rem;
+  border: 5px solid Greenyellow;
+  border-radius: 100%;
+}
+
+.timeline-line {
+  border-left: 2px solid Lime;
+  z-index: -1;
+  top: 100%;
+  left: 50%;
+  position: absolute;
+  width: 2px;
+  height: 6rem;
+}
+
+.content {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  width: 80%;
+  height: 5rem;
+  background-color: white;
+  text-transform: uppercase;
+  background-image: linear-gradient(to left,transparent,transparent,GreenYellow,lime);
+  background-position: 100% 0;
+  background-size: 300% 100%;
+  transition: all .5s ease-out;
+}
+
+.content:hover{
+  background-position: 0 0;
+}
+
+@media screen and (max-width:480px) {
+  .timeline-icon{
+    padding: 10px !important;
+    width: 3rem;
+    height: 3rem;
+    font-size: 15px;
+  }
+  .timeline-line{
+    height: 2rem;
+  }
+  .content{
+    width: 100%;
+    height: 2rem;
+  }
+  .paragraph{
+    display: none;
+  }
+}
